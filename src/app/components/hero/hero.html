@@ -1,0 +1,15 @@
+<div class="hero">
+  <div class="slide" [style.backgroundImage]="'url(' + slides[currentIndex].image + ')'">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>{{ slides[currentIndex].title }}</h1>
+      <p>{{ slides[currentIndex].subtitle }}</p>
+      <button class="btn">تسوق الآن</button>
+    </div>
+
+    <div class="controls">
+      <button (click)="prevSlide()">&#10094;</button>
+      <button (click)="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+</div>

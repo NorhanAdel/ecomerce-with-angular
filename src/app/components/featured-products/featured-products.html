@@ -1,0 +1,32 @@
+<section class="featured">
+  <div class="title-row">
+    <h2>منتجات مميزة</h2>
+    <a class="view-all" href="#">عرض الكل</a>
+  </div>
+
+  <div class="slider-container">
+    <button class="nav-btn left" (click)="prev()">&#10094;</button>
+
+    <div class="slider-wrapper" [style.transform]="'translateX(-' + currentIndex * cardWidth + 'px)'">
+      <div class="card" *ngFor="let product of products">
+        <div class="image">
+          <img [src]="product.image" [alt]="product.name" />
+          <span class="discount" *ngIf="product.discount">-{{ product.discount }}%</span>
+        </div>
+        <div class="info">
+          <h3>{{ product.name }}</h3>
+          <p class="price">
+            <span *ngIf="product.discount" class="old">{{ product.price }} جنيه</span>
+            <span class="new">
+              {{ product.discount ? product.price - (product.price * product.discount) / 100 : product.price }}
+              جنيه
+            </span>
+          </p>
+          <button class="btn">أضف للسلة</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-btn right" (click)="next()">&#10095;</button>
+  </div>
+</section>

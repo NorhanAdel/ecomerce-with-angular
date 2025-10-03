@@ -1,0 +1,118 @@
+.checkout-page {
+  padding: 20px;
+  margin-top:60px;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff6f61;
+  }
+
+  .checkout-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .cart-summary {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+      h2 {
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .cart-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+
+        .item-info {
+          h4 {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+          }
+          p {
+            margin: 2px 0;
+            font-size: 13px;
+            color: #888;
+          }
+        }
+      }
+
+      h3 {
+        text-align: right;
+        margin-top: 15px;
+        color: #ff6f61;
+      }
+    }
+
+    .checkout-form {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+      h2 {
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-top: 10px;
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+
+        input, textarea, select {
+          padding: 10px;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          font-size: 14px;
+          outline: none;
+          margin-bottom: 10px;
+
+          &:focus {
+            border-color: #ff6f61;
+          }
+        }
+
+        button {
+          margin-top: 15px;
+          padding: 12px;
+          background: #ff6f61;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background: #e65b50;
+          }
+        }
+      }
+    }
+  }
+}

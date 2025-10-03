@@ -1,0 +1,14 @@
+<section class="deals">
+  <h2>🔥 عروض اليوم</h2>
+  <p class="countdown">⏰ الوقت المتبقي: {{ timeLeft }}</p>
+
+  <div class="deals-container">
+    <div class="deal-card" *ngFor="let product of products">
+      <img [src]="product.image" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <p class="old-price">{{ product.price }} جنيه</p>
+      <p class="new-price">{{ product.discount }} جنيه</p>
+      <button class="btn">اشتري الآن</button>
+    </div>
+  </div>
+</section>

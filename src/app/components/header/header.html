@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="header__logo">
+    <a routerLink="/">متجري</a>
+  </div>
+
+<div class="header__search">
+  <input type="text" placeholder="ابحث عن منتج..." [(ngModel)]="searchValue" (keyup.enter)="onSearch(searchValue)" />
+  <button (click)="onSearch(searchValue)">بحث</button>
+</div>
+
+
+  <nav class="header__nav">
+    <a routerLink="/">الرئيسية</a>
+    <a routerLink="/products">المنتجات</a>
+    <a routerLink="/new-arrivals">جديدنا</a>
+    <a routerLink="/contact">تواصل معنا</a>
+    <a routerLink="/account">حسابي</a>
+
+    <div class="cart-icon">
+      <a routerLink="/cart">🛒</a>
+      <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </div>
+  </nav>
+</header>

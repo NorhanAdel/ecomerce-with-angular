@@ -1,0 +1,38 @@
+<div class="products-page">
+  <div class="sidebar">
+    <h3>التصنيفات</h3>
+    <ul>
+      <li (click)="filterCategory('')" [class.active]="selectedCategory === ''">الكل</li>
+      <li *ngFor="let category of categories" (click)="filterCategory(category)"
+        [class.active]="selectedCategory === category">
+        {{ category }}
+      </li>
+    </ul>
+
+    <h3>السعر</h3>
+    <div class="price-filter">
+      <input type="number" placeholder="من" [(ngModel)]="minPrice" />
+      <input type="number" placeholder="إلى" [(ngModel)]="maxPrice" />
+      <button (click)="filterByPrice()">تطبيق</button>
+    </div>
+
+    <h3>التقييم</h3>
+    <div class="rating-filter">
+      <div *ngFor="let r of ratings" (click)="filterByRating(r)" [class.active]="selectedRating === r">
+        <span *ngFor="let star of [].constructor(r)">⭐</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card"  [routerLink]="['/product', product.id]">
+      <img [src]="product.image" alt="{{ product.name }}" />
+      <h2>{{ product.name }}</h2>
+      <p class="price">{{ product.price }} ج.م</p>
+      <p class="rating">
+        <span *ngFor="let star of [].constructor(product.rating)">⭐</span>
+      </p>
+      <button>أضف إلى السلة</button>
+    </div>
+  </div>
+</div>

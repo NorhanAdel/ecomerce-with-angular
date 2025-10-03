@@ -1,0 +1,40 @@
+<div class="checkout-page">
+  <h1>إتمام الطلب</h1>
+
+  <div class="checkout-container">
+    <div class="cart-summary">
+      <h2>ملخص السلة</h2>
+      <div class="cart-item" *ngFor="let item of cart">
+        <img [src]="item.image" alt="{{item.name}}">
+        <div class="item-info">
+          <h4>{{item.name}}</h4>
+          <p>{{item.price | currency:'EGP '}} × {{item.quantity}}</p>
+          <p>المجموع: {{item.price * item.quantity | currency:'EGP '}}</p>
+        </div>
+      </div>
+      <h3>الإجمالي الكلي: {{ getTotal() | currency:'EGP ' }}</h3>
+    </div>
+
+    <div class="checkout-form">
+      <h2>تفاصيل الشحن والدفع</h2>
+      <form (ngSubmit)="placeOrder()">
+        <label>الاسم</label>
+        <input type="text" [(ngModel)]="name" name="name" required>
+
+        <label>البريد الإلكتروني</label>
+        <input type="email" [(ngModel)]="email" name="email" required>
+
+        <label>العنوان</label>
+        <textarea [(ngModel)]="address" name="address" required></textarea>
+
+        <label>طريقة الدفع</label>
+        <select [(ngModel)]="paymentMethod" name="paymentMethod">
+          <option value="cash">الدفع عند الاستلام</option>
+          <option value="card">بطاقة ائتمان / خصم</option>
+        </select>
+
+        <button type="submit">تأكيد الطلب</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div *ngIf="product" class="product-details">
+  <div class="image-section">
+    <img [src]="product.image" alt="{{product.name}}">
+  </div>
+
+  <div class="info-section">
+    <h1 class="title">{{product.name}}</h1>
+    <p class="rating">⭐ {{product.rating}} / 5</p>
+    <p class="price">{{product.price | currency:'EGP '}}</p>
+    <p class="category">التصنيف: {{product.category}}</p>
+
+    <div class="description">
+      <h3>الوصف:</h3>
+      <p>{{product.description || 'هذا المنتج يأتي بجودة عالية ومناسب للاستخدام اليومي.'}}</p>
+    </div>
+
+    <div class="specs">
+      <h3>تفاصيل المنتج:</h3>
+      <ul>
+        <li>الماركة: {{product.brand || 'غير محدد'}}</li>
+        <li>الوزن: {{product.weight || 'غير متوفر'}} كجم</li>
+        <li>الأبعاد: {{product.dimensions || 'غير متوفر'}}</li>
+        <li>الخامة: {{product.material || 'غير متوفر'}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="buy-section">
+    <p class="price">{{product.price | currency:'EGP '}}</p>
+    <p>شامل ضريبة القيمة المضافة</p>
+    <button class="btn-add" (click)="addToCart()">أضف للسلة</button>
+    <button class="btn-buy"  >اشترِ الآن</button>
+    <p class="delivery">موعد التوصيل: خلال 2 - 4 أيام عمل 🚚</p>
+    <p class="stock">
+      الحالة: <span [ngClass]="{'in-stock': product.stock > 0, 'out-stock': product.stock === 0}">
+        {{product.stock > 0 ? 'متوفر' : 'غير متوفر'}}
+      </span>
+    </p>
+  </div>
+</div>
+
+
+<div class="similar-products" *ngIf="similarProducts.length > 0">
+  <h3>منتجات مشابهة</h3>
+  <div class="similar-grid">
+    <div class="similar-item" *ngFor="let item of similarProducts">
+      <img [src]="item.image" alt="{{item.name}}">
+      <h4>{{item.name}}</h4>
+      <p class="price">{{item.price}} EGP</p>
+      <button class="btn-view">عرض المنتج</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="reviews-section">
+  <h3>مراجعات العملاء</h3>
+
+  <form class="review-form" (ngSubmit)="addReview()">
+    <label>الاسم</label>
+    <input type="text" [(ngModel)]="newReview.user" name="user" required />
+
+    <label>التقييم</label>
+    <select [(ngModel)]="newReview.rating" name="rating" required>
+      <option *ngFor="let r of [5,4,3,2,1]" [value]="r">{{r}} ⭐</option>
+    </select>
+
+    <label>التعليق</label>
+    <textarea [(ngModel)]="newReview.comment" name="comment" required></textarea>
+
+    <button type="submit">إضافة المراجعة</button>
+  </form>
+
+<div class="reviews-section" *ngIf="reviews.length > 0">
+  <h3>مراجعات العملاء</h3>
+  <div class="review" *ngFor="let review of reviews">
+    <h4>{{review.user}}</h4>
+    <div class="review-rating">⭐ {{review.rating}}</div>
+    <p>{{review.comment}}</p>
+    <span class="review-date">{{review.date}}</span>
+  </div>

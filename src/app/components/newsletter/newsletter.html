@@ -1,0 +1,10 @@
+<section class="newsletter">
+  <div class="newsletter-content">
+    <h2>اشترك في نشرتنا البريدية </h2>
+    <p>سجّل بريدك الإلكتروني علشان توصلك أحدث العروض والأخبار أول بأول</p>
+    <form (ngSubmit)="subscribe()" class="newsletter-form">
+      <input type="email" placeholder="ادخل بريدك الإلكتروني" [(ngModel)]="email" name="email" required />
+      <button type="submit">اشترك الآن</button>
+    </form>
+  </div>
+</section>

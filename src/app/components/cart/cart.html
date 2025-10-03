@@ -1,0 +1,40 @@
+<div class="cart-container" *ngIf="cart.length > 0; else emptyCart">
+  <h2>سلة التسوق</h2>
+
+  <div class="cart-content">
+    <div class="cart-items">
+    <div class="cart-item" *ngFor="let item of cart">
+      <div class="img-box">
+        <img [src]="item.image" alt="{{item.name}}">
+      </div>
+      <div class="item-details">
+        <div class="top-row">
+          <h3>{{item.name}}</h3>
+          <button class="btn-remove" (click)="remove(item.id)">حذف</button>
+        </div>
+        <p class="price">{{item.price | currency:'EGP '}}</p>
+        <div class="quantity">
+          <label>الكمية:</label>
+          <input type="number" [(ngModel)]="item.quantity" min="1" (change)="updateQuantity(item.id, item.quantity)">
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="cart-summary">
+      <h3>ملخص السلة</h3>
+      <p>عدد المنتجات: {{cart.length}}</p>
+      <p>الإجمالي: {{getTotal() | currency:'EGP '}}</p>
+      <button class="btn-checkout"> <a routerLink="/checkout">اتمام الطلب</a></button>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty">
+    <h3>سلة التسوق فارغة 😔</h3>
+    <a routerLink="/products">تصفح المنتجات</a>
+  </div>
+</ng-template>
+<app-new-arrivals/>

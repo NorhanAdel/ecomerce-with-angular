@@ -1,0 +1,51 @@
+.promo-banner {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: url("../../../../public/assets/hero4.png") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+.overlay{
+position: absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: rgba(0, 0, 0, 0.493);
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-10%, -50%);
+    text-align: center;
+    color: #fff;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #e65b50;
+      }
+    }
+  }
+}
+}

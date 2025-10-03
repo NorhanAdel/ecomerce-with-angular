@@ -1,0 +1,131 @@
+.featured {
+  padding: 2rem 5%;
+  background: #f8f9fa;
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    .view-all {
+      font-size: 1rem;
+      color: #007185;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+
+    .slider-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .card {
+      min-width: 230px;
+      margin-right: 15px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .image {
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: contain;
+          background: #fafafa;
+        }
+
+        .discount {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: #b12704;
+          color: #fff;
+          padding: 4px 8px;
+          border-radius: 5px;
+          font-size: 0.85rem;
+        }
+      }
+
+      .info {
+        padding: 0.8rem;
+
+        h3 {
+          font-size: 1rem;
+          margin-bottom: 0.3rem;
+        }
+
+        .price {
+          margin-bottom: 0.7rem;
+
+          .old {
+            text-decoration: line-through;
+            color: #565959;
+            margin-right: 8px;
+          }
+
+          .new {
+            font-weight: bold;
+            color: #b12704;
+          }
+        }
+
+        .btn {
+          background: #ff6f61;
+          color: #111;
+          padding: 0.6rem 1rem;
+          border: 1px solid#ff6f61;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: bold;
+          color:#fff;
+          transition: background 0.3s;
+
+          &:hover {
+            background: #ff6f61;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+
+    &.left { left: 5px; }
+    &.right { right: 5px; }
+  }
+}

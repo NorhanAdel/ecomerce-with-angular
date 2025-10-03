@@ -1,0 +1,23 @@
+<section class="new-arrivals">
+  <h2>وصل حديثاً</h2>
+
+  <div class="slider-container">
+    <button class="control prev" (click)="prev()">‹</button>
+
+    <div class="slider" [style.transform]="sliderTransform">
+      <div class="card" *ngFor="let product of newProducts">
+        <div class="image">
+          <img [src]="product.image" [alt]="product.name" />
+          <span class="tag">جديد</span>
+        </div>
+        <div class="info">
+          <h3>{{ product.name }}</h3>
+          <p class="price">{{ product.price }} جنيه</p>
+          <button class="btn">أضف للسلة</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="control next" (click)="next()">›</button>
+  </div>
+</section>
